@@ -46,6 +46,7 @@ If connecting fails, the panel shows the reason under the button.
 | Message / symptom | Fix |
 | --- | --- |
 | "Google rejected the client ID" / `bad client id` | The OAuth client must be the **Chrome extension** type, with Item ID `ebgocmhkhakanpholcnlfikembcccdhh`. A "Web application" or "Desktop" client won't work with that ID. |
+| `redirect_uri_mismatch` ("The app sent an invalid request") | Chrome's built-in sign-in wasn't available, so the backup web sign-in ran. Open your **Web application** OAuth client and add `https://ebgocmhkhakanpholcnlfikembcccdhh.chromiumapp.org/` (including the trailing `/`) under **Authorized redirect URIs**, then save. Changes can take a few minutes to apply. |
 | "Access blocked: app has not completed verification" | Add your Gmail address under **OAuth consent screen → Test users**. |
 | "The Gmail API is not turned on" | Go to **APIs & Services → Library → Gmail API → Enable**. |
 | "Sign in to Chrome" | Sign in to the Chrome profile itself (profile icon, top right). |
