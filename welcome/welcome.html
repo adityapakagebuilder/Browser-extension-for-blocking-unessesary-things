@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to Promo Shield</title>
+  <link rel="stylesheet" href="../sidepanel/sidepanel.css" />
+  <style>
+    body { display: grid; place-items: center; min-height: 100vh; padding: 24px; }
+    main { max-width: 520px; width: 100%; }
+    .hero { text-align: center; margin-bottom: 20px; }
+    .hero img { border-radius: 18px; margin-bottom: 12px; }
+    .hero h1 { font-size: 26px; }
+    .hero p { color: var(--muted); margin-top: 6px; font-size: 15px; }
+    ol { margin: 0; padding-left: 20px; }
+    ol li { margin: 8px 0; }
+    .card .btn { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="hero">
+      <img src="../icons/icon128.png" width="72" height="72" alt="" />
+      <h1>Promo Shield is on</h1>
+      <p>Ads and promo pop-ups are already being blocked on every site.</p>
+    </div>
+    <section class="card">
+      <h2>Clear your Gmail promos</h2>
+      <p class="muted">Connect Gmail to remove the promo emails already in your mailbox. Verification and sign-in codes, starred mail and senders you choose are kept. Removed mail goes to Trash for 30 days.</p>
+      <button class="btn primary block" id="connect-btn">Connect Gmail &amp; clean up</button>
+      <p class="warn" id="oauth-missing" hidden>Gmail access isn't set up in this build yet. See “Gmail setup” in the README.</p>
+      <p class="muted" id="result" style="margin-top:10px"></p>
+    </section>
+    <section class="card">
+      <h2>Open the side panel</h2>
+      <ol class="muted">
+        <li>Click the puzzle-piece icon in the toolbar and pin <b>Promo Shield</b>.</li>
+        <li>Click the Promo Shield icon. The panel opens on the right side of the browser.</li>
+        <li>Turn the ad blocker and other filters on or off there at any time.</li>
+      </ol>
+    </section>
+  </main>
+  <script src="welcome.js" type="module"></script>
+</body>
+</html>

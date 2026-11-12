@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promo Shield</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="../icons/icon48.png" alt="" width="28" height="28" />
+      <div>
+        <h1>Promo Shield</h1>
+        <p class="muted" id="status-line">Protecting your browser</p>
+      </div>
+    </div>
+    <span class="pill" id="status-pill">On</span>
+  </header>
+
+  <section class="stats">
+    <div class="stat"><span class="num" id="stat-tab">–</span><span class="label">Blocked on this tab</span></div>
+    <div class="stat"><span class="num" id="stat-hidden">0</span><span class="label">Promos hidden</span></div>
+    <div class="stat"><span class="num" id="stat-emails">0</span><span class="label">Emails cleaned</span></div>
+    <div class="stat"><span class="num" id="stat-codes">0</span><span class="label">Codes kept</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Web protection</h2>
+    <label class="row">
+      <span class="row-text">
+        <span class="row-title">Ad blocker</span>
+        <span class="row-sub">Blocks ad networks and ad trackers</span>
+      </span>
+      <input type="checkbox" class="switch" data-setting="adBlock" />
+    </label>
+    <label class="row">
+      <span class="row-text">
+        <span class="row-title">Hide promo pop-ups</span>
+        <span class="row-sub">Sponsored blocks, discount banners, newsletter pop-ups</span>
+      </span>
+      <input type="checkbox" class="switch" data-setting="cosmetic" />
+    </label>
+    <div class="site" id="site-row" hidden>
+      <img id="site-icon" alt="" width="16" height="16" />
+      <span class="site-host" id="site-host"></span>
+      <button class="btn ghost small" id="pause-btn">Pause here</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Gmail</h2>
+    <div id="gmail-disconnected">
+      <p class="muted">Connect Gmail to clear the promo emails already in your inbox and keep new ones out. Verification codes are always kept.</p>
+      <button class="btn primary block" id="connect-btn">Connect Gmail &amp; clean up</button>
+      <p class="warn" id="oauth-missing" hidden>Gmail access isn't set up in this build yet. See “Gmail setup” in the README. Hiding promos in the Gmail tab still works.</p>
+    </div>
+    <div id="gmail-connected" hidden>
+      <div class="account">
+        <span class="dot"></span><span id="gmail-account"></span>
+        <button class="link" id="disconnect-btn">Disconnect</button>
+      </div>
+      <button class="btn primary block" id="clean-btn">Clean promotions now</button>
+      <div class="progress" id="progress" hidden>
+        <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+        <span class="muted" id="progress-text"></span>
+      </div>
+    </div>
+    <label class="row">
+      <span class="row-text">
+        <span class="row-title">Hide promos in Gmail</span>
+        <span class="row-sub">Hides sponsored ads and promo rows as you browse</span>
+      </span>
+      <input type="checkbox" class="switch" data-setting="gmailHide" />
+    </label>
+    <label class="row">
+      <span class="row-text">
+        <span class="row-title">Auto-clean new promos</span>
+        <span class="row-sub">Moves new promos to Trash every 15 minutes</span>
+      </span>
+      <input type="checkbox" class="switch" data-setting="autoClean" />
+    </label>
+    <p class="note">Always kept: verification &amp; sign-in codes, starred mail and senders below. Removed mail goes to Gmail's Trash, where you can restore it for 30 days.</p>
+  </section>
+
+  <section class="card">
+    <h2>Always keep mail from</h2>
+    <form class="add" id="allow-form">
+      <input type="text" id="allow-input" placeholder="store.com or news@brand.com" autocomplete="off" />
+      <button class="btn small" type="submit">Add</button>
+    </form>
+    <ul class="chips" id="allow-list"></ul>
+  </section>
+
+  <p class="toast" id="toast" role="status" hidden></p>
+  <script src="sidepanel.js" type="module"></script>
+</body>
+</html>
