@@ -75,7 +75,7 @@
     }
   ],
   "oauth2": {
-    "client_id": "624576384692-hn6nufkoqqqpu36nq8qmh0ivl54tddgp.apps.googleusercontent.com",
+    "client_id": "624576384692-lhvgh2pgidk38s3kpo6ie49ke5lc1bil.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/gmail.modify"
     ]
