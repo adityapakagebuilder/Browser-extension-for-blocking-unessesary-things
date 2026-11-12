@@ -3,6 +3,7 @@
   "name": "Promo Shield",
   "short_name": "Promo Shield",
   "version": "1.0.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqCmlbb0XUe9ZcHkQ/xsNG+qhW/V7qcjUHPp9OTZyZpIxlW9+LDVg5BQyrPJ9GIcD5UsTiySOwIgtnhRs+PsByVLajoGlt2wh0//Uf2VlNkcPLsZdKoAjQbkzbHIYfEdWt3boQGUyvdW3qw3foo5ixIwhqGjfjKKE2t/Wtx5OvFPp23QiXMPXEFvOC8QiiJAA9rAiqND12Rn8vZt2vzA4gFHXb1volUKCvlAPF2SZY45owMfTcY+wI3S4Ej0qNhyRIGHyA0osq794u/tZivfVg1AVv9bz1dWgYR2+DeLIUgjMqR22DuQMs+RtIhQVb0zj7YXAbq/9F+jx3k72LYvnSwIDAQAB",
   "description": "Blocks ads and promos on the web and clears promo emails from Gmail, while keeping your verification codes.",
   "minimum_chrome_version": "116",
   "icons": {
@@ -40,25 +41,43 @@
   ],
   "declarative_net_request": {
     "rule_resources": [
-      { "id": "ads", "enabled": true, "path": "rules/ads.json" }
+      {
+        "id": "ads",
+        "enabled": true,
+        "path": "rules/ads.json"
+      }
     ]
   },
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "exclude_matches": ["https://mail.google.com/*"],
-      "js": ["content/cosmetic.js"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "exclude_matches": [
+        "https://mail.google.com/*"
+      ],
+      "js": [
+        "content/cosmetic.js"
+      ],
       "run_at": "document_idle",
       "all_frames": false
     },
     {
-      "matches": ["https://mail.google.com/*"],
-      "js": ["lib/classifier.js", "content/gmail.js"],
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "js": [
+        "lib/classifier.js",
+        "content/gmail.js"
+      ],
       "run_at": "document_idle"
     }
   ],
   "oauth2": {
     "client_id": "624576384692-hn6nufkoqqqpu36nq8qmh0ivl54tddgp.apps.googleusercontent.com",
-    "scopes": ["https://www.googleapis.com/auth/gmail.modify"]
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.modify"
+    ]
   }
 }

@@ -135,3 +135,7 @@ p { margin: 0; }
   position: fixed; left: 16px; right: 16px; bottom: 16px; padding: 10px 14px; border-radius: 10px;
   background: var(--text); color: var(--bg); font-size: 13px; text-align: center; box-shadow: var(--shadow);
 }
+
+.ext-id { margin-top: 10px; font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.ext-id code { font: 11.5px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg); padding: 2px 6px; border-radius: 6px; color: var(--text); word-break: break-all; }
+.ext-id .link { margin-left: 0; }

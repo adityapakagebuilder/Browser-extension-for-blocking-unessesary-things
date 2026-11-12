@@ -24,15 +24,34 @@ A Chrome extension (Manifest V3) that blocks ads and promos in the browser and c
 
 ## Gmail setup (one time)
 
-To erase emails, the extension uses the Gmail API, and Google requires your own OAuth client ID for that:
+To erase emails, the extension uses the Gmail API. Google requires your own OAuth client ID for that.
 
-1. In [Google Cloud Console](https://console.cloud.google.com/), create a project and enable the **Gmail API**.
-2. Set up the **OAuth consent screen** (External), and add the scope `https://www.googleapis.com/auth/gmail.modify` and your own account as a test user.
-3. Go to **Credentials → Create credentials → OAuth client ID → Chrome extension**. Enter the extension ID shown on `chrome://extensions`.
-4. Paste the client ID into `manifest.json` → `oauth2.client_id`, then reload the extension.
-5. Open the side panel and click **Connect Gmail & clean up**.
+The extension has a **fixed ID**, the same on every computer:
 
-To keep the extension ID stable across machines, add a `"key"` to `manifest.json` ([docs](https://developer.chrome.com/docs/extensions/reference/manifest/key)).
+```
+ebgocmhkhakanpholcnlfikembcccdhh
+```
+
+1. In [Google Cloud Console](https://console.cloud.google.com/), create a project. Go to **APIs & Services → Library**, open **Gmail API** and click **Enable**.
+2. Set up the **OAuth consent screen** (External). Add the scope `https://www.googleapis.com/auth/gmail.modify`, and add your Gmail address under **Test users**.
+3. Go to **Credentials → Create credentials → OAuth client ID**. Choose **Chrome extension** as the application type, and enter `ebgocmhkhakanpholcnlfikembcccdhh` as the **Item ID**.
+4. Paste the client ID into `manifest.json` → `oauth2.client_id`.
+5. On `chrome://extensions`, click **reload** on Promo Shield. Confirm the ID shown there matches the one above.
+6. Open the side panel and click **Connect Gmail & clean up**.
+
+### Troubleshooting
+
+If connecting fails, the panel shows the reason under the button.
+
+| Message / symptom | Fix |
+| --- | --- |
+| "Google rejected the client ID" / `bad client id` | The OAuth client must be the **Chrome extension** type, with Item ID `ebgocmhkhakanpholcnlfikembcccdhh`. A "Web application" or "Desktop" client won't work with that ID. |
+| "Access blocked: app has not completed verification" | Add your Gmail address under **OAuth consent screen → Test users**. |
+| "The Gmail API is not turned on" | Go to **APIs & Services → Library → Gmail API → Enable**. |
+| "Sign in to Chrome" | Sign in to the Chrome profile itself (profile icon, top right). |
+| "This browser does not support…" | Use Google Chrome. Edge, Brave and Opera don't support Chrome's extension sign-in. |
+| The extension ID on `chrome://extensions` is different | Pull the latest `manifest.json`, which includes the `key` field, then remove the extension and load it again. |
+| Nothing changed after editing `manifest.json` | Click **reload** on `chrome://extensions`. |
 
 ## Project layout
 

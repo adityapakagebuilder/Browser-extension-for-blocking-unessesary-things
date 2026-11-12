@@ -129,13 +129,21 @@ $('pause-btn').addEventListener('click', async () => {
 
 $('connect-btn').addEventListener('click', async () => {
   $('connect-btn').disabled = true;
+  $('gmail-error').hidden = true;
   try {
     const { email } = await send('connectGmail');
     toast(`Connected ${email}. Cleaning up promos…`);
   } catch (e) {
-    toast(e.message);
+    $('gmail-error').textContent = e.message;
+    $('gmail-error').hidden = false;
   }
   await refresh();
+});
+
+$('ext-id').textContent = chrome.runtime.id;
+$('copy-id').addEventListener('click', async () => {
+  await navigator.clipboard.writeText(chrome.runtime.id);
+  toast('Extension ID copied');
 });
 
 $('disconnect-btn').addEventListener('click', async () => {
