@@ -16,7 +16,7 @@ A Chrome extension (Manifest V3) that blocks ads and promos in the browser and c
 
 ## Contents
 
-- [For coworkers: install and connect Gmail](#for-coworkers-install-and-connect-gmail)
+- [For People: install and connect Gmail](#for-coworkers-install-and-connect-gmail)
 - [For the owner: Google Cloud setup](#for-the-owner-google-cloud-setup)
 - [Using the side panel](#using-the-side-panel)
 - [Troubleshooting](#troubleshooting)
@@ -24,7 +24,7 @@ A Chrome extension (Manifest V3) that blocks ads and promos in the browser and c
 
 ---
 
-## For coworkers: install and connect Gmail
+## For People: install and connect Gmail
 
 About 5 minutes. You only need Google Chrome and a Gmail account.
 
